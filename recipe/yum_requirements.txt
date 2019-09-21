@@ -4,3 +4,4 @@ libXcursor
 libXi
 libXtst
 libXScrnSaver
+libXrandr
