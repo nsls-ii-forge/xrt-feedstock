@@ -2,3 +2,4 @@ mesa-libGL
 libXcomposite
 libXcursor
 libXi
+libXtst
