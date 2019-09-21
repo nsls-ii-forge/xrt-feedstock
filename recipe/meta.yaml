@@ -1,0 +1,55 @@
+{% set name = "xrt" %}
+{% set version = "1.3.3" %}
+{% set sha256 = "1c4e4db630298b9af2d98bef85f8c6c13a8dbac7ad707a8ea7f680b64a0c91d2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/kklmn/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+ 
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: True  # [py<36]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - matplotlib
+    - numpy
+    - pyqt
+    - scipy
+    - sphinx
+    # - pyopencl  - Not sure if we need this (optional runtime dep)
+
+test:
+  imports:
+    - xrt
+    - xrt.backends
+    - xrt.backends.raycing 
+    - xrt.gui
+    - xrt.gui.commons
+    - xrt.gui.xrtGlow
+    - xrt.gui.xrtQook
+
+about:
+  home: https://xrt.readthedocs.io
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: 'Ray tracing and wave propagation in x-ray regime'
+  description: |
+    Package xrt (XRayTracer) is a python software library for ray tracing and
+    wave propagation in x-ray regime. It is primarily meant for modeling
+    synchrotron sources, beamlines and beamline elements. Includes a GUI for
+    creating a beamline and interactively viewing it in 3D.
+  doc_url: https://xrt.readthedocs.io
+  dev_url: https://github.com/kklmn/xrt
