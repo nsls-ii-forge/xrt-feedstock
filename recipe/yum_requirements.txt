@@ -6,4 +6,4 @@ libXtst
 libXScrnSaver
 libXrandr
 alsa-lib
-libglvnd-egl
+mesa-libEGL
