@@ -3,3 +3,4 @@ libXcomposite
 libXcursor
 libXi
 libXtst
+libXss
