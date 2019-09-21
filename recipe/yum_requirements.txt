@@ -3,4 +3,4 @@ libXcomposite
 libXcursor
 libXi
 libXtst
-libXss
+libXScrnSaver
