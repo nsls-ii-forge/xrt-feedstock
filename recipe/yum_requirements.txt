@@ -5,3 +5,4 @@ libXi
 libXtst
 libXScrnSaver
 libXrandr
+alsa-lib
