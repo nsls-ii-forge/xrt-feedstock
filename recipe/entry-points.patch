@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index ebf0f68..b1e4426 100644
+index 50d17f2..97a5a75 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -204,6 +204,7 @@ setup(
@@ -11,7 +11,7 @@ index ebf0f68..b1e4426 100644
                        'sphinx>=1.6.2'],
      classifiers=['Development Status :: 5 - Production/Stable',
 diff --git a/xrt/gui/xrtQookStart.py b/xrt/gui/xrtQookStart.py
-index 2d171fa..24a8f57 100644
+index d998978..346af9b 100644
 --- a/xrt/gui/xrtQookStart.py
 +++ b/xrt/gui/xrtQookStart.py
 @@ -9,7 +9,7 @@ sys.path.append(os.path.join('..', '..'))
