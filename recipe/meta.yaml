@@ -1,19 +1,26 @@
 {% set name = "xrt" %}
 {% set version = "1.3.3" %}
-{% set sha256 = "1c4e4db630298b9af2d98bef85f8c6c13a8dbac7ad707a8ea7f680b64a0c91d2" %}
+{% set file_ext = "zip" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "1360ca34a20aa8a1ee9b8bcdf9f4539f06955d1d0c535a539887143b102a4e39" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/kklmn/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
- 
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  {{ hash_type }}: {{ hash_value }}
+  # TODO: remove the patch after https://github.com/kklmn/xrt/pull/42 is accepted/merged/released.
+  patches:
+    - entry-points.patch
+
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: True  # [py<36]
+  entry_points:
+    - {{ name }} = {{ name }}.gui.xrtQookStart:main
 
 requirements:
   build:
@@ -39,6 +46,9 @@ test:
     - xrt.gui.commons
     - xrt.gui.xrtGlow
     - xrt.gui.xrtQook
+  commands:
+    - which xrt  # [not win]
+    - where xrt  # [win]
 
 about:
   home: https://xrt.readthedocs.io
