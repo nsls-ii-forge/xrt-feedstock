@@ -9,9 +9,11 @@ package:
 source:
   url: https://github.com/kklmn/{{ name }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
- 
+  patches:
+    - entry-points.patch
+
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: True  # [py<36]
 
@@ -39,6 +41,9 @@ test:
     - xrt.gui.commons
     - xrt.gui.xrtGlow
     - xrt.gui.xrtQook
+  commands:
+    - which xrt  # [not win]
+    - where xrt  # [win]
 
 about:
   home: https://xrt.readthedocs.io
