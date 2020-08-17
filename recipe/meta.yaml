@@ -1,24 +1,22 @@
 {% set name = "xrt" %}
-{% set version = "1.3.3" %}
-{% set file_ext = "zip" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "1360ca34a20aa8a1ee9b8bcdf9f4539f06955d1d0c535a539887143b102a4e39" %}
+{% set version = "1.3.4" %}
+{% set sha256 = "0ca221e95a4fd5218e62094c35e25bab15d13f5562b410fe7348ae8a338696bc" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  {{ hash_type }}: {{ hash_value }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
+  sha256: {{ sha256 }}
   # TODO: remove the patch after https://github.com/kklmn/xrt/pull/42 is accepted/merged/released.
   patches:
     - entry-points.patch
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  skip: True  # [py<36]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: true  # [py<36]
   entry_points:
     - {{ name }} = {{ name }}.gui.xrtQookStart:main
 
@@ -41,7 +39,7 @@ test:
   imports:
     - xrt
     - xrt.backends
-    - xrt.backends.raycing 
+    - xrt.backends.raycing
     - xrt.gui
     - xrt.gui.commons
     - xrt.gui.xrtGlow
@@ -55,7 +53,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: 'Ray tracing and wave propagation in x-ray regime'
+  summary: Ray tracing and wave propagation in x-ray regime
   description: |
     Package xrt (XRayTracer) is a python software library for ray tracing and
     wave propagation in x-ray regime. It is primarily meant for modeling
