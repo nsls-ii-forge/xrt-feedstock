@@ -5,9 +5,13 @@ Home: https://xrt.readthedocs.io
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/nsls-ii-forge/xrt-feedstock/blob/master/LICENSE.txt)
 
 Summary: Ray tracing and wave propagation in x-ray regime
+
+Development: https://github.com/kklmn/xrt
+
+Documentation: https://xrt.readthedocs.io
 
 Package xrt (XRayTracer) is a python software library for ray tracing and
 wave propagation in x-ray regime. It is primarily meant for modeling
