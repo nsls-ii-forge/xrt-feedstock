@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '7'
 cdt_name:
 - cos6
 channel_sources:
@@ -9,12 +9,12 @@ channel_sources:
 channel_targets:
 - nsls2forge main
 docker_image:
-- nsls2/nsls2forge:latest
+- quay.io/condaforge/linux-anvil-comp7
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.6'
+- '3.9'
 target_platform:
 - linux-64
